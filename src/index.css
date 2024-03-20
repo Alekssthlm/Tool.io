@@ -1,0 +1,615 @@
+/* GLOBAL */
+
+:root{
+  --primary-darkmode: rgba(0, 0, 0, 0.63);
+  --primary-lightmode: rgba(224, 224, 224, 0.664);
+  --text-input-darkmode: rgb(75, 75, 75, 0.63);
+  --text-input-lightmode: rgba(255, 255, 255, 0.63);
+  --btn-main-darkmode: #6101EE;
+  --btn-main-darkmode-hover: #4b00bc;
+  --element-darkmode: rgb(75, 75, 75, 0.63);
+  --element-lightmode: rgb(255, 255, 255);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body{
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: all 1s;
+}
+
+ul{
+  list-style: none;
+}
+
+/* LOCAL */
+
+.site-header{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  padding: 2vh;
+  font-size: 2.5vh;
+  color: white;
+  gap: 0.8rem;
+  text-shadow: 1px 1px 30px black;
+  background: var(--primary-darkmode);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  transition: all 1s;
+
+}
+
+.site-header-light{
+  background-color: var(--primary-lightmode);
+  color: black;
+}
+
+.site-header-widget-wrap{
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.header-weather {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.header-weather-icon {
+  width: 4vh;
+  height: 4vh;
+}
+
+.site-wrap{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex: 1;
+  margin: 1vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 575.98px){
+  .site-wrap{
+    margin: 0;
+  }
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.498) 20%, transparent);
+  padding: 2vh;
+  font-size: 3vh;
+  z-index: 1;
+}
+
+.app-wrap{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80vmin;
+  height: 100%;
+  max-width: 50rem;
+  padding: 1vh;
+  gap: 1vh;
+}
+
+@media (max-width: 575.98px){
+  .app-wrap{
+    width: 95vmin;
+  }
+}
+
+.menu-btn{
+  font-size: 1.5rem;
+  position: relative;
+  flex: 0;
+}
+
+.settings{
+  background-color: black;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  width: 15rem;
+  padding: 1rem 1rem 1rem 1.2rem ;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 10;
+  border-radius: 5px;
+  color: white;
+}
+
+.hide-settings{
+  display: none;
+}
+
+.settings-group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* MAIN NAVBAR */
+
+.main-navbar{
+  height: 6vh;
+  padding: 1vh;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 1s;
+  background: var(--primary-darkmode);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.main-navbar-lightmode{
+  background-color: var(--primary-lightmode);
+}
+
+.nav-link-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+@media (max-width: 575.98px){
+  .nav-link-container{
+    padding-left: 1rem;
+    justify-content: flex-start;
+  }
+}
+
+.nav-links{
+  color: white;
+  text-decoration: none;
+  font-size: 2vh;
+  font-weight: 500;
+}
+
+.nav-links-lightmode{
+  color: black;
+}
+
+.toggle-theme-btn{
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+}
+
+.toggle-theme-btn-light{
+  background: none;
+}
+
+/* APP CONTAINER */
+
+.app-container{
+  padding: 1rem;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s;
+  background: var(--primary-darkmode);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+@media (max-width: 575.98px){
+  .app-container{
+    padding: 0.5rem;
+  }
+}
+
+.app-container-lightmode{
+  background-color: var(--primary-lightmode);
+}
+
+.app-container-transparent{
+  background: none;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* WELCOME PAGE */
+
+.time-welcome-page{
+  font-size: 5rem;
+  height: 100%;
+  color: white;
+  text-shadow: 1px 1px 20px black;
+}
+
+/* TASK MANAGER */
+
+.task-wrap{
+  width: 100%;
+}
+
+.input-bar{
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 1rem;
+  align-items: center;
+}
+
+@media (max-width: 575.98px){
+  .input-bar{
+    gap: 0.2rem;
+  }
+}
+
+.input-field{
+  height: 2rem;
+  flex: 2;
+  height: 3rem;
+  background: rgb(75, 75, 75, 0.63);
+  backdrop-filter: blur(5px);
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  padding-left: 0.8rem;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  box-shadow: 0 4px 6px black;
+}
+
+.input-field-light{
+  color: black;
+  background-color: rgba(255, 255, 255, 0.63);
+}
+
+@media (max-width: 575.98px){
+  .input-field{
+    font-size: 1rem;
+    height: 2rem;
+  }
+}
+
+.add-todo-btn{
+  flex: 1;
+  height: 3rem;
+  background: #6101EE;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  box-shadow: 0 4px 6px black;
+  border-style: none;
+}
+
+@media (max-width: 575.98px){
+  .add-todo-btn{
+    height: 2rem;
+    font-size: 0.7rem;
+  }
+}
+
+.add-todo-btn:hover{
+  background: #4b00bc;
+}
+
+.add-todo-btn:active{
+  background: #6101EE;
+}
+
+.todo-list{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 90%;
+  overflow-y: auto;
+}
+
+@media (max-width: 575.98px){
+  .todo-list{
+    gap: 0.5rem;
+  }
+}
+
+.todo-wrap{
+  display: flex;
+  background-color: var(--element-darkmode);
+  padding: 0.8rem;
+  border-radius: 25px;
+  color: white;
+  backdrop-filter: blur(5px);
+  align-items: center;
+}
+
+.todo-wrap-light{
+  color: black;
+  background-color: var(--element-lightmode);
+}
+
+@media (max-width: 575.98px){
+  .todo-wrap{
+    padding: 0.3rem 0.8rem 0.3rem 1rem;
+  }
+}
+
+.todo-label-wrap{
+  flex: 1;
+  min-height: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.todo-item {
+  font-size: 1rem;
+}
+
+.todo-check:checked ~ .todo-item{
+  text-decoration: line-through;
+}
+
+.delete-button{
+  padding: 0.2rem 0.5rem;
+  font-size: 1.3rem;
+  width: 2.2rem;
+  border-color: red;
+  color: red;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.5s;
+}
+
+@media (max-width: 575.98px){
+  .delete-button{
+    font-size: 1rem;
+  }
+}
+
+.delete-button:hover{
+  transform: scale(1.2);
+}
+
+/* CALENDAR */
+
+.calendar-wrap{
+  display: flex;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+@media (max-width: 575.98px){
+  .calendar-wrap{
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 575.98px){
+  #calendar{
+    width: 100%;
+  }
+}
+
+.calendar-events{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* padding: 0.5rem 0.2rem 0.2rem; */
+  color: white;
+  background-color: transparent;
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (max-width: 575.98px){
+  .calendar-events{
+    width: 100%;
+    padding: 0.5rem 0.2rem 0.2rem;
+  }
+}
+
+.calendar-title{
+  background: var(--element-darkmode);
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(5px);
+  color: #fff;
+}
+
+.calendar-title-light{
+  background: var(--btn-main-darkmode-hover);
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.424);
+  
+}
+
+.calendar-task-list{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.calendar-task-list-light{
+  color: #000;
+}
+
+@media (max-width: 575.98px){
+  .calendar-title{
+    display: none;
+  }
+}
+
+.calendar-input-wrap{
+  display: flex;
+  gap: 0.2rem;
+}
+
+.calendar-input{
+  height: 2rem;
+  background: var(--text-input-darkmode);
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  color: #fff;
+  font-weight: 400;
+  box-shadow: 0 4px 6px black;
+  flex: 1;
+  font-size: 1.2rem;
+  backdrop-filter: blur(5px);
+}
+
+.calendar-input-light{
+  background: var(--text-input-lightmode);
+  color: #000;
+}
+
+.calendar-btn{
+  height: 2rem;
+  background: var(--btn-main-darkmode);
+  border-radius: 0.5rem;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 2px black;
+  padding: 0 0.6rem;
+  font-size: 1.2rem;
+}
+
+.calendar-btn:hover{
+  background: var(--btn-main-darkmode-hover);
+}
+
+.todo-wrap-calendar{
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.2rem 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--element-darkmode);
+}
+
+.todo-wrap-calendar-light{
+  background: var(--element-lightmode);
+}
+
+@media (max-width: 575.98px){
+  .todo-wrap-calendar{
+    padding: 0.2rem 0.2rem 0.2rem 1rem;
+  }
+}
+
+.calendar-task-label{
+  flex: 1;
+}
+
+/* UNIT CONVERTER */
+
+.converter-container{
+  width: 100%;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.converter-header-wrap{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.unit-select{
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background: var(--element-darkmode);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.unit-select-light{
+  background: var(--element-lightmode);
+  color: #000;
+}
+
+.converter-input-wrap{
+  display: flex;
+}
+
+.converter-input{
+  font-size: 1.2rem;
+  flex: 1;
+  background: var(--element-darkmode);
+  color: #fff;
+  padding-left: 0.5rem;
+}
+
+@media (max-width: 575.98px){
+  .converter-input{
+    font-size: 1rem;
+  }
+}
+
+.converter-input-light{
+  background: var(--element-lightmode);
+  color: #000;
+}
+
+.converter-btn{
+  font-size: 1.2rem;
+  background: var(--btn-main-darkmode);
+  color: white;
+  padding: 0.5rem;
+}
+
+.converter-btn:hover{
+  background: var(--btn-main-darkmode-hover);
+}
+
+.conversion-container{
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+  background: var(--primary-lightmode);
+  border-radius: 5px;
+  height: 40%;
+}
+
+@media (max-width: 575.98px){
+  .conversion-container{
+    font-size: 1rem;
+  }
+}
