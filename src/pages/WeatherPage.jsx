@@ -60,7 +60,7 @@ export default function WeatherPage() {
     if(searchCity === "") return
     try {
       let city = searchCity.trim();
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.VITE_API}`);
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_API}`);
 
       if (!response.ok) {
         throw new Error(`Failed to fetch weather data: ${response.status} ${response.statusText}`);
@@ -89,13 +89,13 @@ export default function WeatherPage() {
 
   async function fetchWeatherByLocation(lat, lon) {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.VITE_API}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${import.meta.env.VITE_API}`
     );
 
     if (!response.ok) {
       throw new Error(`Failed to fetch weather data: ${response.status} ${response.statusText}`);
     }
-    
+
     const data = await response.json();
     setWeather(() => data);
     setWicon(() => data.weather[0].icon);

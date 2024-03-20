@@ -29,7 +29,7 @@ export default function TopWeather({ location }) {
 
   async function fetchWeatherByLocation() {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${process.env.VITE_API}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${import.meta.env.VITE_API}`
     );
 
     if (!response.ok) {
