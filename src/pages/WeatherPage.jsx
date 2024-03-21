@@ -85,6 +85,13 @@ export default function WeatherPage() {
     setLongitude(() => location.longitude)
   }
 
+  // Handle submit button on weather page
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+    handleSearch();
+  };
+
   // Fetch weather depending on coordinates
 
   async function fetchWeatherByLocation(lat, lon) {
@@ -119,6 +126,7 @@ export default function WeatherPage() {
     <>
     {weather ? 
     <div className="weather-container">
+      <form action="" onSubmit={handleSubmit}>
     <div className="top-bar">
     <button className="currentlocation-icon" onClick={handleCurrentLocation} title="Get your current locations weather">
         <img src={currentlocation_icon} alt="" />
@@ -130,10 +138,11 @@ export default function WeatherPage() {
         value={searchCity}
         onChange={(e) => setSearchCity(e.target.value)}
       />
-      <button className="search-icon" onClick={handleSearch}>
+      <button className="search-icon" type="submit">
         <img src={search_icon} alt="" />
       </button>
     </div>
+    </form>
     <div className="weather-image">
     <img
         src={iconMapping[`${wicon}`] || iconMapping.default}
