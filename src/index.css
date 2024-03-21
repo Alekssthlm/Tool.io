@@ -22,7 +22,7 @@
   font-family: 'Open Sans', sans-serif;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
   transition: all 1s;
 }
 
